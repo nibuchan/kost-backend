@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const auth = require("../middleware/auth");
 const BoardingHouse = require("../models/kost.model");
-const { createKosHandler } = require("../controllers/kos.controller");
+const { createKosHandler, upload } = require("../controllers/kos.controller");
 
 router.post("/", auth, upload.single(image), createKosHandler)
 
