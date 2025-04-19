@@ -6,7 +6,9 @@ const authRoutes = require("./routes/auth");
 const kosRoutes = require("./routes/kost.routes");
 
 server.use(cors({
-  origin: "https://bacarikos.vercel.app",
+  origin: ["https://bacarikos.vercel.app"],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
 }));
 
