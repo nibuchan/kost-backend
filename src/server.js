@@ -5,12 +5,7 @@ const server = express();
 const authRoutes = require("./routes/auth");
 const kosRoutes = require("./routes/kost.routes");
 
-server.use(cors({
-  origin: ["https://bacarikos.vercel.app"],
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true,
-}));
+server.use(cors());
 
 const PORT = process.env.PORT || 3000;
 
@@ -20,6 +15,6 @@ server.use("/api/auth", authRoutes);
 server.use("/api/kos", kosRoutes);
 
 server.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on ${PORT}`);
 });
 
