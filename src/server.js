@@ -1,8 +1,19 @@
 require("dotenv").config();
-const app = require("./app");
+const express = require("express");
+const server = express();
+const authRoutes = require("./routes/auth");
+const kosRoutes = require("./routes/kost.routes");
+
+server.use(cors());
 
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
+server.use(express.json({ limit: "10mb" }));
+
+server.use("/api/auth", authRoutes);
+server.use("/api/kos", kosRoutes);
+
+server.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
+
