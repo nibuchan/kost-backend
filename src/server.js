@@ -5,7 +5,10 @@ const server = express();
 const authRoutes = require("./routes/auth");
 const kosRoutes = require("./routes/kost.routes");
 
-server.use(cors());
+server.use(cors({
+  origin: "https://bacarikos.vercel.app",
+  credentials: true,
+}));
 
 const PORT = process.env.PORT || 3000;
 
